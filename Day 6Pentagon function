@@ -3,14 +3,15 @@ write a function that takes a positvie integer num and calculates how many dots 
 
 i/p: 1
 o/p: 1
+[(1)--> 1+5*0=1]   //sum=sum+5*i====>formula
 
 i/p:2
 o/p: 6
-(1+5=6)
+[(1+5=6)---> 1+5*1=6]
 
 i/p:3
 o/p:16
-(1+5+10=16)
+[(1+5+10=16)--->1+5*3=16]
 
 ***/
 
