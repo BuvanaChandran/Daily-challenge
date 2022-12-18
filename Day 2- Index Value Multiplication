@@ -1,0 +1,42 @@
+?**** Given an Array of intgers , return a new array such that each element at index i of the new array is the product of all the numbers in the original array except the one at i. 
+
+i/p: [1,2,3,4,5]
+o/p: [120, 60,40,30,24]
+
+i/p: [3,2,1]
+o/p:[2,3,6]
+
+
+***/
+
+
+
+import java.util.Scanner;
+public class Main
+{
+    public static void product(int arr[],int n){
+        if(n==1){
+            System.out.print(n);
+            return ;}
+        int left[]=new int[n];
+        int right[]=new int[n];
+        int prod[]=new int[n];
+        int i,j;
+        left[0]=1;
+        right[n-1]=1;
+        for(i=1;i<n;i++){
+            left[i]=arr[i-1]*left[i-1];}
+        for(j=n-2;j>=0;j--){
+            right[j]=arr[j+1]*right[j+1];}
+        for(i=0;i<n;i++){
+            prod[i]=left[i]*right[i]; }
+        for(i=0;i<n;i++){
+            System.out.print(prod[i]+" "); }}
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		int[] arr=new int[n];
+		for(int i=0;i<n;i++){
+		    arr[i]=sc.nextInt();}
+		product(arr,n);}}
+
