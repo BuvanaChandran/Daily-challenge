@@ -1,0 +1,70 @@
+/***
+GIven an array of integers and a umber k, where 1<=k<=length of the array, compute the maximum values of each subarray of length K.
+
+For example, given array=[10,5,2,7,8,7] and k=3, we should get: [10,7,8,8] ,since: 
+10=max(10,5,2)
+7=max(5,2,7)
+8=max(2,7,8)
+8=max(7,8,7)
+
+
+***/
+
+import java.util.*;
+
+public class MaxValuesInSubarray {
+    public static void main(String[] args) {
+        // Create a scanner object to read user input
+        Scanner input = new Scanner(System.in);
+
+        // Prompt the user to enter the length of the array
+        System.out.print("Enter the length of the array: ");
+        int n = input.nextInt();
+
+        // Create an array of length n to store the user input
+        int[] array = new int[n];
+
+        // Prompt the user to enter the elements of the array
+        System.out.println("Enter the elements of the array: ");
+        for (int i = 0; i < n; i++) {
+            array[i] = input.nextInt();
+        }
+
+        // Prompt the user to enter the value of k
+        System.out.print("Enter the value of k: ");
+        int k = input.nextInt();
+
+        // Call the maxValuesInSubarray function to compute the maximum values of each subarray of length k
+        int[] result = maxValuesInSubarray(array, k);
+
+        // Print the result to the console
+        System.out.println("Maximum values of each subarray of length " + k + ": " + Arrays.toString(result));
+    }
+
+    public static int[] maxValuesInSubarray(int[] array, int k) {
+        // Get the length of the input array
+        int n = array.length;
+
+        // Create an array to store the maximum values of each subarray
+        int[] result = new int[n - k + 1];
+
+        // Iterate over each subarray of length k in the input array
+        for (int i = 0; i <= n - k; i++) {
+            // Set the maximum value to the first element of the subarray
+            int max = array[i];
+
+            // Iterate over the remaining elements in the subarray and update the maximum value if necessary
+            for (int j = i + 1; j < i + k; j++) {
+                if (array[j] > max) {
+                    max = array[j];
+                }
+            }
+
+            // Store the maximum value of the subarray in the result array
+            result[i] = max;
+        }
+
+        // Return the result array
+        return result;
+    }
+}
